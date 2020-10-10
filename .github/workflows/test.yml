@@ -28,4 +28,4 @@ jobs:
       
       - id: test-code
         name: test
-        run: go test ./...
+        run: make test
