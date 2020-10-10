@@ -26,6 +26,12 @@ jobs:
         id: checkout-code
         uses: actions/checkout@master
       
+      - name: install kubebuilder
+        id: install-kubebuilder
+        uses: RyanSiu1995/kubebuilder-action@v1
+        with:
+          version: 2.3.1
+      
       - id: test-code
         name: test
         run: make test
