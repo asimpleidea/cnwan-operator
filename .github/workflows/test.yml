@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+
+  test:
+    name: test
+    strategy:
+      matrix:
+        go-version: [1.13.x, 1.14.x, 1.15.x]
+    runs-on: ubuntu-latest
+    steps:
+      - name: install go
+        id: install-go
+        uses: actions/setup-go@v2.1.3
+        with:
+          go-version: ${{ matrix.go-version }}
+      
+      - name: checkout code
+        id: checkout-code
+        uses: action/checkout@v2.3.3
+      
+      - id: test-code
+        name: test
+        run: go test ./...
