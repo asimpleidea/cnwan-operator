@@ -10,17 +10,14 @@ on:
 jobs:
 
   test:
-    name: test
-    strategy:
-      matrix:
-        go-version: [1.13.x, 1.14.x, 1.15.x]
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: install go
         id: install-go
         uses: actions/setup-go@master
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: "^1.13x"
       
       - name: checkout code
         id: checkout-code
