@@ -18,13 +18,13 @@ jobs:
     steps:
       - name: install go
         id: install-go
-        uses: actions/setup-go@v2.1.3
+        uses: actions/setup-go@master
         with:
           go-version: ${{ matrix.go-version }}
       
       - name: checkout code
         id: checkout-code
-        uses: action/checkout@v2.3.3
+        uses: action/checkout@master
       
       - id: test-code
         name: test
