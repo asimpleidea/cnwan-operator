@@ -24,7 +24,7 @@ jobs:
       
       - name: checkout code
         id: checkout-code
-        uses: action/checkout@master
+        uses: actions/checkout@master
       
       - id: test-code
         name: test
