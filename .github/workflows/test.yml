@@ -32,8 +32,3 @@ jobs:
       - id: test-code
         name: test
         run: make test
-
-      - id: echo-result
-        name: Echo Result
-        if: success() 
-        run: echo "All tests passed"
