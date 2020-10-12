@@ -23,6 +23,7 @@ import (
 )
 
 func TestManageNs(t *testing.T) {
+	t.FailNow()
 	// prepare
 	var f *fakeServReg
 	b, _ := NewBroker(f, "", "")
