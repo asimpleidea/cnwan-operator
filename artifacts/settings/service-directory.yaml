@@ -1,0 +1,5 @@
+# GCP project ID where Service Directory is enabled.
+projectID: <project>
+
+# Default region to use for service registry.
+defaultRegion: <region>

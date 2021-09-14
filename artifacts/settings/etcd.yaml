@@ -1,0 +1,6 @@
+# Prefix to to include on all keys.
+# Default: /service-registry/
+prefix: /service-registry/
+
+# Endpoints to communicate with your etcd cluster.
+endpoints: ["localhost:2379"]

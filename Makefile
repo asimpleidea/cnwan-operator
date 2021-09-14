@@ -42,3 +42,6 @@ docker-build: test
 # Push the docker image
 docker-push:
 	docker push ${IMG}
+
+build: fmt vet
+	go build -o bin/manager *.go

@@ -18,12 +18,14 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"runtime"
 
 	"github.com/CloudNativeSDWAN/cnwan-operator/controllers"
 	"github.com/CloudNativeSDWAN/cnwan-operator/internal/types"
 	"github.com/CloudNativeSDWAN/cnwan-operator/internal/utils"
+	"github.com/CloudNativeSDWAN/cnwan-operator/pkg/cli/command"
 	"github.com/CloudNativeSDWAN/cnwan-operator/pkg/cluster"
 	sr "github.com/CloudNativeSDWAN/cnwan-operator/pkg/servregistry"
 	"github.com/CloudNativeSDWAN/cnwan-operator/pkg/servregistry/etcd"
@@ -62,6 +64,24 @@ func init() {
 }
 
 func main() {
+	root := command.NewRootCommand()
+	if err := root.Execute(); err != nil {
+		fmt.Println(err)
+	}
+}
+
+type OperatorCLI struct {
+	FilePath               string
+	ConfigMap              string
+	DefaultNamespaceAction string
+	ServiceLabels          []string
+	ServiceAnnotations     []string
+	Network                string
+	SubNetwork             string
+	ServiceRegistry        string
+}
+
+func mainBak() {
 	// TODO: on next version, this main will be completely changed with a
 	// better return code and exiting mechanism. Right now is fine but
 	// too cluttered.

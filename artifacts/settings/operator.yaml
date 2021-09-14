@@ -1,0 +1,27 @@
+# This is the action that the operator will perform when it can't find
+# the label "operator.cnwan.io/enabled" on a namespace.
+# If you write "enabled", the operator will watch all namespaces and ignore
+# those that have label "operator.cnwan.io/enabled=no".
+# If you write "disabled", the operator will watch only the namespaces that
+# have the label "operator.cnwan.io/enabled=yes".
+# Default: disabled.
+watchAllNamespaces: false
+
+# The labels that a service must have in order to be watched by the operator.
+# Leaving this empty means that there will be no label filter.
+serviceLabels: []
+
+# The annotations that a service must have in order to be watched by the
+# operator.
+# Leaving this empty means that there will be no annotation filter.
+serviceAnnotations: []
+
+# Metadata about the cloud environment where the operator is running.
+# Comment this whole section if you don't need this.
+cloudMetadata:
+  # The network name. Write auto to try to detect this automatically.
+  # Comment this if you don't need this.
+  network: ""
+  # The subnetwork name. Write auto to try to detect this automatically.
+  # Comment this if you don't need it.
+  subNetwork: ""
